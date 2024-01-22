@@ -38,8 +38,6 @@ class JobsspiderSpider(scrapy.Spider):
             self.job_caracteristics['company_location']=job.css('span.job-search-card__location::text').get(default='not-found').strip()
             # now we go and scrap the description of the job 
             yield scrapy.Request(self.job_caracteristics['job_description_url'],callback=self.parse_description,meta={'first_job_on_page':first_job_on_page})
-            # we return our object job
-            yield self.job_caracteristics
         if num_jobs>0 :
             first_job_on_page=int(first_job_on_page)+25
             first_url=self.api_url+str(first_job_on_page)
@@ -48,3 +46,5 @@ class JobsspiderSpider(scrapy.Spider):
 
     def parse_description(self,response):
        self.job_caracteristics['job_ description']= ' '.join(response.xpath('//div[contains(@class, "description__text--rich")]/section//text()').getall()).strip()
+       # we return our object job
+       yield self.job_caracteristics
