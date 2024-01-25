@@ -16,25 +16,25 @@ NEWSPIDER_MODULE = "jobscraper.spiders"
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "jobscraper (+http://www.yourdomain.com)"
 
-# Obey robots.txt rules
-ROBOTSTXT_OBEY = False
-SCRAPEOPS_API_KEY = '34fe4050-9508-4c43-9624-43c37b068814'
-SCRAPEOPS_PROXY_ENABLED = True
+# # Obey robots.txt rules
+# ROBOTSTXT_OBEY = False
+# SCRAPEOPS_API_KEY = '6577a8b2-4d0c-4484-9442-eabf3723b480'
+# SCRAPEOPS_PROXY_ENABLED = True
 
-EXTENSIONS = {
-'scrapeops_scrapy.extension.ScrapeOpsMonitor': 500, 
-}
-DOWNLOADER_MIDDLEWARES = {
+# EXTENSIONS = {
+# 'scrapeops_scrapy.extension.ScrapeOpsMonitor': 500, 
+# }
+# DOWNLOADER_MIDDLEWARES = {
 
-    ## ScrapeOps Monitor
-    'scrapeops_scrapy.middleware.retry.RetryMiddleware': 550,
-    'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
+#     ## ScrapeOps Monitor
+#     'scrapeops_scrapy.middleware.retry.RetryMiddleware': 550,
+#     'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
     
-    ## Proxy Middleware
-    'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
-}
-# Max Concurrency On ScrapeOps Proxy Free Plan is 1 thread
-CONCURRENT_REQUESTS = 1
+#     ## Proxy Middleware
+#     'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
+# }
+# # Max Concurrency On ScrapeOps Proxy Free Plan is 1 thread
+# CONCURRENT_REQUESTS = 1
 # Activer le middleware personnalisé
 # DOWNLOADER_MIDDLEWARES = {
 #     # Assurez-vous que les autres middlewares sont correctement configurés
